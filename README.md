@@ -45,9 +45,11 @@ Render of the display board. It measures 3.70x1.60 inch.
 ![board_display](https://raw.github.com/basilfx/Arduino-BeerCounter/master/docs/board_display.png)
 
 ## Arduino
-The source can be found under `firmware`. It's build with Arduino 1.0.5, but newer versions should work too.
+The source can be found under `firmware`. It's build with Arduino 1.6.5, but newer versions should work too.
 
-See the `firmware/UsedLibraries.md` for the libraries to install.
+You need the following libraries:
+* [CommandLine](https://github.com/basilfx/Arduino-CommandLine)
+* [Timer1](http://playground.arduino.cc/Code/Timer1)
 
 ### Firmware
 To be done.

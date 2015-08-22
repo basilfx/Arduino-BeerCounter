@@ -6,9 +6,13 @@
 //#define DEBUG
 
 /**
- * CommandLine
+ * CommandLine instance.
  */
-CommandLine commandLine;
+CommandLine commandLine(Serial, "> ");
+
+/**
+ * Configuration structure.
+ */
 configuration_t configuration;
 
 timer_t timerSave;
@@ -85,18 +89,15 @@ void configMode() {
   Serial.println("Config mode");
 
   // Add commands
-  commandLine.add((char*) "help", commandHelp);
-  commandLine.add((char*) "count", commandCount); 
-  commandLine.add((char*) "zeroes", commandZeroes); 
-  commandLine.add((char*) "restarts", commandRestarts);
-  commandLine.add((char*) "ram", commandRam);   
-  commandLine.add((char*) "reset", commandReset);
-
-  // Start command line
-  commandLine.begin((char *) "> ");
+  commandLine.add("help", commandHelp);
+  commandLine.add("count", commandCount); 
+  commandLine.add("zeroes", commandZeroes); 
+  commandLine.add("restarts", commandRestarts);
+  commandLine.add("ram", commandRam);   
+  commandLine.add("reset", commandReset);
 
   // Loop config mode until reset.
-  for (;;) commandLine.loop();
+  for (;;) commandLine.update();
 }
 
 void configTimers() {
